@@ -1,0 +1,12 @@
+module = {
+    sanity01 = {
+        enabled = true
+        name = "sanity"
+        namespace = "test"
+        environment = "azure"
+        location = "eastus"
+        stage = "dev"
+        resource_group_name = "sanity-rg"
+        address_space = ["192.168.0.0/16"]
+    }
+}
