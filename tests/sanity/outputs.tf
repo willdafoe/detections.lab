@@ -1,3 +1,3 @@
 output "module" {
-  value = module.test
+  value = module.detection_lab
 }

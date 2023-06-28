@@ -6,7 +6,9 @@ module = {
         environment = "azure"
         location = "eastus"
         stage = "dev"
-        resource_group_name = "sanity-rg"
         address_space = ["192.168.0.0/16"]
+        address_prefixes = []
+        subnet_count = 2
+        max_subnet_count = 0
     }
 }

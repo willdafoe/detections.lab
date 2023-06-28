@@ -19,3 +19,25 @@ provider "registry.terraform.io/hashicorp/azurerm" {
     "zh:f569b65999264a9416862bca5cd2a6177d94ccb0424f3a4ef424428912b9cb3c",
   ]
 }
+
+provider "registry.terraform.io/tlkamp/validation" {
+  version = "1.0.0"
+  hashes = [
+    "h1:U5U3NdnAEVVjSLU0jpj5cWTGUjFvOhBqnKyOkZ2dcYA=",
+    "zh:1187fdfbc7723b47ec05d51c0c35df6414b18ab5e57ab361a875b99f520b1ad5",
+    "zh:1c3e89cf19118fc07d7b04257251fc9897e722c16e0a0df7b07fcd261f8c12e7",
+    "zh:298de3ee386d828cb6af03083a286b0f2d05ceceefabd31cbf87834fdecd7aed",
+    "zh:44c55d1c307c4c38fb88e6cf7314ea313d631f6ce17e03da2153e3de521ff223",
+    "zh:50fbbbeda764d78282bc09bf258016b35afd2b45c7722b28820acc60af59875d",
+    "zh:56daf570ee7775cf80985a6bcf621b484e0eb612c50614d1ce488f1ff0b298ca",
+    "zh:5c582a9bda6d9aa117f9f9540909450e1b4601d427c679e2acd39e762d422617",
+    "zh:6b203b18d33d40ea53f7f2af04de2f0cff26ff65954e7f1dbf50dcdc35b5accc",
+    "zh:78afa61d7e89c62f10441a345f98f3e0223615fa1b3e6324dcb683eb20694888",
+    "zh:b1f38960fb0da66ab2a63aae42e44c94167a209620e76d8bace5618434c1d03e",
+    "zh:c62092e0c2ac0b6d24c02557816c773da723c9473fa614a8b41081b0b5e80792",
+    "zh:cb41c79a079f24c2639faf03b548ed491b8bdbdc245e06c9b51df4e787b7e785",
+    "zh:d8f809c3232f3125bd91ca66d7143a468be9bac71694509563ada8258fff8aec",
+    "zh:e488a24b8e359e8c761928418084fef637ead17871c2fe21e46d78460f202483",
+    "zh:fb9ce71b239e0ee669a85a230de1930e5cfeacec47425444989f9dd7cae1f18a",
+  ]
+}

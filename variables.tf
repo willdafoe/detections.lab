@@ -19,10 +19,11 @@ variable "address_prefixes" {
     Lists of CIDRs to assign to subnets. Order of CIDRs in the lists must not change over time.
     Lists may contain more CIDRs than needed.
   EOD
+  type        = list(string)
   default     = []
   validation {
     condition     = length(var.address_prefixes) < 2
-    error_message = "Only 1 address_prefixes object can be provided. Lists of CIDRs are passed via the `public` and `private` attributes of the single object."
+    error_message = "Only 1 address_prefixes object can be provided."
   }
 }
 
@@ -55,6 +56,15 @@ variable "dns_servers" {
   type        = list(string)
   default     = []
 }
+
+variable "filter_tags" {
+  description = <<EOD
+    [Optional] A map of tags to use for filtering existing resources.
+    EOD
+  type        = map(string)
+  default     = {}
+}
+
 variable "resource_group_name" {
   description = <<EOD
     [Optional] The name of an existing resource group. If this value is not provided, the module will attempt to verify that the resource group exists before attempting to create it.
