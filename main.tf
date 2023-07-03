@@ -16,16 +16,16 @@ module "label" {
 }
 
 resource "azurerm_resource_group" "this" {
-  count    = var.resource_group_name == null && local.e ? 1 : 0
+  count    = module.this.enabled && var.resource_group_name == null ? 1 : 0
   name     = format("%s-%02d", module.label["resource_group"].id, count.index + 1)
   location = var.location
   tags     = module.label["resource_group"].tags
 }
 
 resource "azurerm_virtual_network" "this" {
-  count               = (local.e && var.vnet_name == null) ? 1 : 0
+  count               = module.this.enabled && var.vnet_name == null ? 1 : 0
   name                = format("%s-%02d", module.label["vnet"].id, count.index + 1)
-  resource_group_name = azurerm_resource_group.this[0].name
+  resource_group_name = var.resource_group_name == null ? azurerm_resource_group.this[count.index].name : var.resource_group_name
   location            = var.location
   address_space       = var.address_space
   dns_servers         = var.dns_servers
@@ -38,4 +38,12 @@ resource "azurerm_virtual_network" "this" {
   #  }
   #}
   tags = module.label["vnet"].tags
+}
+
+resource "validation_warning" "existing" {
+  count     = local.e ? 1 : 0
+  condition = data.azurerm_resources.existing == []
+  summary   = <<EOM
+     [Validation Warning] The resource: ${local.existing_resource.name} wasn't found as a valid data source. Please check the name, and/or the filter_tags variable.
+     EOM
 }

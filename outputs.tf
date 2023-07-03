@@ -12,3 +12,7 @@
 output "azurem_resource" {
   value = data.azurerm_resources.existing
 }
+
+output "validation_warning" {
+  value = validation_warning.existing
+}

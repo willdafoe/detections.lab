@@ -8,6 +8,7 @@ module = {
         stage = "dev"
         address_space = ["192.168.0.0/16"]
         address_prefixes = []
+        resource_group_name = "sanity-01"
         subnet_count = 2
         max_subnet_count = 0
     }

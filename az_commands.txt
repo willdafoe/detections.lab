@@ -1,0 +1,7 @@
+az ad app create --display-name myApp
+
+az ad sp create --id $appId
+
+az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
+
+FEDERATED CREDENTIALS
