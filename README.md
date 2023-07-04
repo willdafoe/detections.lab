@@ -1,4 +1,4 @@
-[![Open in Shinyapps.io](https://img.shields.io/badge/Shinyapps.io-Open%20App-blue)](https://yourusername.shinyapps.io/yourappname/)
+
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
