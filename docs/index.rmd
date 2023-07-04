@@ -1,7 +1,5 @@
 ---
-output: 
-    github_document:
-        toc: true
+output: github_document
 ---
 
 # Setting up GitHub Actions OIDC Authentication
