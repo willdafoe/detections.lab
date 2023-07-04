@@ -1,12 +1,4 @@
-# detections.lab
-
-# Setting up GitHub Actions OIDC Authentication
-
-OpenID Connect (OIDC) allows your GitHub Actions workflows to access resources in Azure, without needing to store the Azure credentials as long-lived GitHub secrets.
-
-## 1. Create an Azure Active Directory Application and a Serivce Principal 
-
-
+[![Open in Shinyapps.io](https://img.shields.io/badge/Shinyapps.io-Open%20App-blue)](https://yourusername.shinyapps.io/yourappname/)
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

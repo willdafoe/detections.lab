@@ -62,8 +62,9 @@ Open Subscriptions in Azure portal and find your subscription. Copy the Subscrip
     |Name | Identifier for the federated Credential | ```contoso-deploy```|
     
     For a more detailed overview, see Configure an app to trust a GitHub repo.
-
+##
     <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+    
 ## Requirements
 
 No requirements.
