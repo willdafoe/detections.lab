@@ -1,0 +1,19 @@
+name: Terraform Manual Deployment
+
+on:
+    workflow_dispatch:
+
+jobs:
+    manual_deploy:
+        name: Manual Azure Deployment
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v2
+            - name: setup terraform
+              uses: hashicorp/setup-terraform@v1
+            - name: terraform init
+              run: |
+                terraform init
+                

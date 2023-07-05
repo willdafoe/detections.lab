@@ -1,0 +1,17 @@
+name: Generate README.md
+on:
+    push:
+
+jobs:
+    generate_readme:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: generate readme
+              uses: ./
+              with:
+                input_file: "./docs/README.rmd"
+                output_format: 
+                    - html_document
+                    - github_document

@@ -1,0 +1,24 @@
+# Render README action
+name: Render README
+description: Renders the README file for this repository
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.input_file }}
+    - ${{ inputs.output_format }}
+inputs: 
+  input_file:
+    description: Input rmarkdown file (.rmd)
+    required: true
+    default: './docs/README.rmd'
+  output_format:
+    description: Format of the output document.
+    required: true
+    default: github_document
+outputs:
+  output_file:
+      description: "Output document defaults as the name of the rmarkdown file with the output format."
+branding:
+  icon: book
+  color: blue

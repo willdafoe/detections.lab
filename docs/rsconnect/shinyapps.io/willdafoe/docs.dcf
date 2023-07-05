@@ -1,0 +1,11 @@
+name: docs
+title:
+username:
+account: willdafoe
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9412730
+bundleId: 7423658
+url: https://willdafoe.shinyapps.io/docs/
+when: 1688581619.46907
+lastSyncTime: 1688581619.46908

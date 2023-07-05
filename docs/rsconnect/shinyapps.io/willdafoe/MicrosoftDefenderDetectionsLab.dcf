@@ -1,0 +1,11 @@
+name: MicrosoftDefenderDetectionsLab
+title: Microsoft Defender Detections Lab
+username:
+account: willdafoe
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9412954
+bundleId: 7423910
+url: https://willdafoe.shinyapps.io/MicrosoftDefenderDetectionsLab/
+when: 1688585543.67466
+lastSyncTime: 1688585543.67467
