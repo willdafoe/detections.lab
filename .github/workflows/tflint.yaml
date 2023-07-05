@@ -52,7 +52,7 @@ jobs:
         if: ${{ failure() }}
         with:
           allow-repeats: true
-          repo-token: ${{ steps.generate-token.outputs.token }}
+          repo-token: ${{ steps.github_token.outputs.token }}
           message: |
             ## Terraform Format Diff:
             ```diff
