@@ -5,6 +5,12 @@ on:
 jobs:
     generate_readme:
         runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                output_format: 
+                    - html_document
+                    - github_document
         steps: 
             - name: Checkout
               uses: actions/checkout@v2
@@ -12,6 +18,4 @@ jobs:
               uses: ./
               with:
                 input_file: "./docs/README.rmd"
-                output_format: 
-                    - html_document
-                    - github_document
+                output_format: ${{ matrix.output_format }}
