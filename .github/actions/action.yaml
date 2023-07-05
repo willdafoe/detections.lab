@@ -13,7 +13,7 @@ inputs:
     required: true
     default: './docs/README.rmd'
   output_format:
-    description: Format of the output document.
+    description: Format of the output document
     required: true
     default: github_document
 outputs:
