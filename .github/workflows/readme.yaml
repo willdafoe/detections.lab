@@ -17,5 +17,5 @@ jobs:
             - name: generate readme
               uses: ./.github/actions
               with:
-                input_file: "./docs/README.rmd"
+                input_file: docs/README.rmd
                 output_format: ${{ matrix.output_format }}
