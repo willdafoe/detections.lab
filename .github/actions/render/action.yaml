@@ -12,9 +12,14 @@ inputs:
   output_file:
     description: output file name
     required: false
+  output_dir:
+    description: output directory
+    required: false
 outputs:
   output_file: 
     description: Output document defaults as the name of the rmarkdown file with the output format
+  output_dir:
+    description: Output directory
 runs:
   using: 'docker'
   image: 'Dockerfile'
