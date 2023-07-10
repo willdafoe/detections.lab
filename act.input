@@ -1,0 +1,3 @@
+input_file='./docs/README.rmd'
+output_format='html_document'
+output_file='./docs/index.html'

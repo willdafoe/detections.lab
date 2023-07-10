@@ -5,17 +5,26 @@ on:
 jobs:
     generate_readme:
         runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            matrix:
-                output_format: 
-                    - html_document
-                    - github_document
         steps: 
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: generate readme
-              uses: ./.github/actions
+            - uses: actions/checkout@v2
+            - uses: ./.github/actions/render_html
               with:
-                input_file: docs/README.rmd
-                output_format: ${{ matrix.output_format }}
+                  input_file: ./docs/README.rmd
+                  output_format: html_document
+                  output_file: index.html
+                  output_dir: ./docs/
+            - name: Commit files
+              run: |
+                git config --local core.autocrlf false
+                git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+                git config --local user.name "${{ github.actor }}"
+                git add . && git add --renormalize .
+                git pull origin ${{ github.head_ref }} --autostash --rebase -X ours
+                git commit --allow-empty -am "AUTO-GH ACTION: ${{ github.workflow }}"
+                NO_PAGER=1 git --no-pager diff HEAD^
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                branch: ${{ github.head_ref }}
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+            
