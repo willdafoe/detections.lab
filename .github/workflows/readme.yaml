@@ -12,12 +12,20 @@ jobs:
             output_dir: [./docs/]
         steps: 
             - uses: actions/checkout@v2
-            - uses: ./.github/actions/render
+            - name: Render GitHub Pages
+              uses: ./.github/actions/render
               with:
                   input_file: ./docs/README.rmd
-                  output_format: ${{ matrix.output_format }}
-                  output_file: ${{ matrix.output_file }}
-                  output_dir:  ${{ matrix.output_dir }}
+                  output_format: html_document
+                  output_file: index.html
+                  output_dir:  ./docs/
+            - name: Render README.md
+              uses: ./.github/actions/render
+              with:
+                  input_file: ./docs/README.rmd
+                  output_format: github_document
+                  output_file: README.md
+                  output_dir:  ./
             - name: Commit files
               run: |
                 git config --local core.autocrlf false
