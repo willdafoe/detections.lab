@@ -9,7 +9,7 @@ jobs:
           matrix:
             output_format: [html_document,github_document]
             output_file: [index.html,README.md]
-            output_dir: [./docs/, ./]
+            output_dir: [./docs/]
         steps: 
             - uses: actions/checkout@v2
             - uses: ./.github/actions/render
