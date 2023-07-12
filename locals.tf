@@ -1,7 +1,5 @@
 locals {
-  enabled      = module.this.enabled
-  use_existing = (var.resource_group_name != null || var.vnet_name != null) ? true : false
-  e            = local.enabled && local.use_existing
+  use_existing = module.(var.resource_group_name != null || var.vnet_name != null) ? true : false
 
   labels = [for key in keys(var.labels) : merge(
     {
