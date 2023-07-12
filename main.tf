@@ -23,21 +23,24 @@ resource "terraform_data" "existing" {
 }
 
 resource "azurerm_resource_group" "this" {
-  count    = local.use_existing == false ? 1 : 0
+  count    = !(local.use_existing) ? 1 : 0
   name     = format("%s-%02d", module.label["resource_group"].id, count.index + 1)
   location = var.location
   tags     = module.label["resource_group"].tags
 }
 
-resource "terraform_data" "build" {
-  for_each = local.use_existing ? [1] : [0]
-  input    = data.azurerm_resources.existing
+resource "terraform_data" "default" {
+  count = local.use_existing ? 1 : 0
+  input = {
+    name                = data.azurerm_resources.existing[count.index].resources == [] ? data.azurerm_resources.existing[count.index].name : null
+    resource_group_name = !(data.azurerm_resources.existing[count.index].resources == []) ? data.azurerm_resources.existing[count.index].resources[count.index].resource_group_name : azurerm_resource_group.this[count.index].name
+  }
 }
 
 resource "azurerm_virtual_network" "this" {
-  count               = local.use_existing == false && var.vnet_name == null ? 1 : 0
+  count               = !(local.use_existing) && var.vnet_name == null ? 1 : 0
   name                = format("%s-%02d", module.label["vnet"].id, count.index + 1)
-  resource_group_name = var.resource_group_name == null ? azurerm_resource_group.this[count.index].name : var.resource_group_name
+  resource_group_name = terraform_data.default[count.index].resource_group_name
   location            = var.location
   address_space       = var.address_space
   dns_servers         = var.dns_servers
