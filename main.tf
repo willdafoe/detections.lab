@@ -29,6 +29,11 @@ resource "azurerm_resource_group" "this" {
   tags     = module.label["resource_group"].tags
 }
 
+resource "terraform_data" "build" {
+  for_each = local.use_existing ? [1] : [0]
+  input    = data.azurerm_resources.existing
+}
+
 resource "azurerm_virtual_network" "this" {
   count               = local.use_existing == false && var.vnet_name == null ? 1 : 0
   name                = format("%s-%02d", module.label["vnet"].id, count.index + 1)
@@ -43,6 +48,6 @@ resource "azurerm_virtual_network" "this" {
   #    address_prefix = [element(local.ipv4_subnet_cidrs, count.index)]
   #    security_group = var.nsg_name
   #  }
-  #}
+  #}  
   tags = module.label["vnet"].tags
 }
