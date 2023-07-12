@@ -1,7 +1,6 @@
 # action.yml
 name: Github action for rmarkdown
 description: Renders pdf, tex or html documents out of rmarkdown files
-author: Luis Chaves
 inputs:
   input_file:
     description: input rmarkdown file (.Rmd)

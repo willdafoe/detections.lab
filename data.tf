@@ -1,3 +1,5 @@
-data "azurerm_virtual_network" "default" {
-  count = module.this.enabled && !(var.vnet_name == null) && !(var.resource_group_name == null) ? 1 : 0
+data "azurerm_resources" "existing" {
+  count               = local.use_existing ? 1 : 0
+  name                = local.existing_resource.name
+  resource_group_name = local.existing_resource.resource_group_name
 }

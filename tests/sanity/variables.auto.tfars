@@ -1,15 +1,28 @@
 module = {
-    sanity01 = {
+    rg_exists = {
         enabled = true
-        name = "sanity"
-        namespace = "test"
+        name = "rg_exists"
+        namespace = "rg_exists"
         environment = "azure"
         location = "eastus"
-        stage = "dev"
+        stage = "sanity"
         address_space = ["192.168.0.0/16"]
         address_prefixes = []
         resource_group_name = "sanity-01"
         subnet_count = 2
         max_subnet_count = 0
+    },
+    vnet_exists = {
+        enabled = true
+        name = "vnet_exists"
+        namespace = "vnet_exists"
+        environment = "azure"
+        location = "eastus"
+        stage = "sanity"
+        address_space = ["192.168.0.0/16"]
+        address_prefixes = []
+        vnet_name = "vnet-sanity-01"
+        subnet_count = 1
+        max_subnet_count = 1
     }
 }

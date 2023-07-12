@@ -15,6 +15,13 @@ module "label" {
   context         = module.this.context
 }
 
+resource "terraform_data" "existing" {
+  count = local.use_existing ? 1 : 0
+  input = {
+    resource_name = local.existing_resource.name
+  }
+}
+
 resource "azurerm_resource_group" "this" {
   count    = local.use_existing == false ? 1 : 0
   name     = format("%s-%02d", module.label["resource_group"].id, count.index + 1)
@@ -23,7 +30,7 @@ resource "azurerm_resource_group" "this" {
 }
 
 resource "azurerm_virtual_network" "this" {
-  count               = local.use_existing == false ? 1 : 0
+  count               = local.use_existing == false && var.vnet_name == null ? 1 : 0
   name                = format("%s-%02d", module.label["vnet"].id, count.index + 1)
   resource_group_name = var.resource_group_name == null ? azurerm_resource_group.this[count.index].name : var.resource_group_name
   location            = var.location
