@@ -1,9 +1,3 @@
-data "azurerm_resources" "existing" {
-  count         = local.e ? 1 : 0
-  name          = local.existing_resource.name
-  type          = local.existing_resource.type
-  required_tags = local.existing_resource.required_tags
-  timeouts {
-    read = "5m"
-  }
+data "azurerm_virtual_network" "default" {
+  count = module.this.enabled && !(var.vnet_name == null) && !(var.resource_group_name == null) ? 1 : 0
 }
