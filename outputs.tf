@@ -10,6 +10,14 @@ output "resource_group_name" {
   )
 }
 
+#output "data_source_keys" {
+#  value = flatten([ for key,type in data.azurerm_resources.existing[0].resources : [
+#    for index in range(length(data.azurerm_resources.existing[0].resources)) : {
+#      type =type.type
+#    }
+#  ]])
+#}
+
 #output "terraform_data" {
 #  value = terraform_data.default
 #}

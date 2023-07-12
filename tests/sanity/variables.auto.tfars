@@ -24,5 +24,16 @@ module = {
         vnet_name = "vnet-sanity-01"
         subnet_count = 1
         max_subnet_count = 1
+    },
+    rg_validation_error = {
+        enabled = true
+        name = "rg_validation_error"
+        namespace = "rg_validation_error"
+        environment = "azure"
+        location = "eastus"
+        stage = "sanity"
+        address_space = ["192.168.0.0/16"]
+        address_prefixes = []
+        resource_group_name = "resource_group"
     }
 }
