@@ -18,7 +18,7 @@ module "label" {
 resource "terraform_data" "existing" {
   count = local.use_existing ? 1 : 0
   input = {
-    resource_name = local.existing_resource.name
+    data_source = data.azurerm_resources.existing
   }
 }
 
