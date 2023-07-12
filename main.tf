@@ -39,11 +39,3 @@ resource "azurerm_virtual_network" "this" {
   #}
   tags = module.label["vnet"].tags
 }
-
-resource "validation_warning" "existing" {
-  count     = local.e ? 1 : 0
-  condition = data.azurerm_resources.existing == []
-  summary   = <<EOM
-     [Validation Warning] The resource: ${local.existing_resource.name} wasn't found as a valid data source. Please check the name, and/or the filter_tags variable.
-     EOM
-}
